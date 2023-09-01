@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^3.3.1",
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -11,19 +12,22 @@
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "axios": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test"
-    },
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -36,7 +40,6 @@
       "last 1 safari version"
     ]
   },
- 
   "devDependencies": {
     "@commitlint/cli": "^17.4.3",
     "@commitlint/config-conventional": "^17.4.3",
@@ -56,7 +59,8 @@
     "eslint-plugin-unicorn": "^45.0.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
-    "prettier": "2.8.4"
+    "prettier": "2.8.4",
+    "sass": "^1.66.1"
   },
   "husky": {
     "hooks": {
@@ -65,7 +69,10 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx, html}": ["prettier --write","eslint --fix"]
+    "*.{js,jsx,ts,tsx, html}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "commitlint": {
     "extends": [

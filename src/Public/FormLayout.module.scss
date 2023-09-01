@@ -1,0 +1,111 @@
+.mainForm {
+	height: 100vh;
+	width: 100%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__container {
+		border-radius: 8px;
+		background: #fff;
+		box-shadow:
+			0px 0px 1px 0px rgba(76, 93, 112, 0.3),
+			0px 4px 8px 0px rgba(76, 93, 112, 0.3);
+		padding: 24px;
+		min-width: 80%;
+		@media (min-width: 550px) {
+			min-width: 514px;
+		}
+	}
+	&__header {
+		margin-bottom: 1.5em;
+	}
+	&__title {
+		font-size: 24px;
+		font-weight: 500;
+		text-align: left;
+	}
+	&__body {
+	}
+	&__form {
+	}
+	&__form-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	&__buttons-wrapper {
+		margin-top: 1.5em;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	&__button {
+		height: 40px;
+	}
+
+	&__register {
+		transition: all 0.4s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		font-size: 13px;
+		&:hover {
+			transition: all 0.4s;
+			color: #c06ecc;
+		}
+	}
+	input[type="password"] {
+		padding-right: 40px;
+	}
+	&__error {
+		display: flex;
+		font-size: 13px;
+		color: red;
+		justify-content: center;
+		font-weight: 500;
+	}
+	&__form-item {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		&:not(:first-child) {
+			position: relative;
+		}
+	}
+	&__show {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		background: no-repeat center/16px url("../img/eye.svg");
+		right: 6px;
+		top: 24px;
+		margin: auto;
+		cursor: pointer;
+		display: block;
+	}
+	&__label {
+		margin-bottom: 4px;
+		font-size: 14px;
+	}
+	&__input {
+		border-radius: 8px;
+		border: 1px solid #d0d3da;
+		background: #fff;
+		width: auto;
+		height: 20px;
+		padding: 10px;
+		&:focus {
+			outline-color: #c06ecc;
+		}
+
+		&::placeholder {
+			color: #737680;
+		}
+	}
+}
