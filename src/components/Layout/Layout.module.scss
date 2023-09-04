@@ -1,0 +1,144 @@
+.container {
+	width: min(100% - 30px, 1440px);
+	max-width: 100%;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+}
+.wrapper {
+	margin-bottom: 150px;
+	overflow: hidden;
+	width: 100%;
+}
+.main {
+	display: grid;
+	grid-template-columns: 217px 1fr;
+	gap: 24px;
+	align-items: flex-start;
+	@media (max-width: 1030px) {
+		grid-template-columns: 1fr;
+	}
+}
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 0;
+	&__logout {
+		display: block;
+		width: -webkit-fit-content;
+		width: -moz-fit-content;
+		width: fit-content;
+	}
+}
+.cursor {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	margin: 20px 0;
+	@media (max-width: 1030px) {
+		display: flex;
+	}
+}
+.mainInner {
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	height: 100%;
+
+	&__body {
+		border-radius: 24px;
+		background: #fff;
+		box-shadow: -5px 1px 15px 0px rgba(0, 0, 0, 0.05);
+		height: 100%;
+	}
+	&__header {
+		align-self: flex-end;
+	}
+	&__body {
+		padding: 24px;
+		overflow: hidden;
+	}
+	&__content {
+		height: 100%;
+	}
+}
+
+.tooltip-horizontal-scroll-icon_hand {
+	-webkit-animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite;
+	animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite;
+}
+
+.tooltip-horizontal-scroll-icon_card {
+	-webkit-animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite;
+	animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite;
+}
+
+@-webkit-keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
+	0% {
+		transform: translateX(80px) scale(1);
+		opacity: 0;
+	}
+	10% {
+		transform: translateX(80px) scale(1);
+		opacity: 1;
+	}
+	20%,
+	60% {
+		transform: translateX(175px) scale(0.6);
+		opacity: 1;
+	}
+	80% {
+		transform: translateX(5px) scale(0.6);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(5px) scale(0.6);
+		opacity: 0;
+	}
+}
+
+@keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
+	0% {
+		transform: translateX(80px) scale(1);
+		opacity: 0;
+	}
+	10% {
+		transform: translateX(80px) scale(1);
+		opacity: 1;
+	}
+	20%,
+	60% {
+		transform: translateX(175px) scale(0.6);
+		opacity: 1;
+	}
+	80% {
+		transform: translateX(5px) scale(0.6);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(5px) scale(0.6);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
+	0%,
+	60% {
+		transform: translateX(0);
+	}
+	80%,
+	to {
+		transform: translateX(-240px);
+	}
+}
+@keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
+	0%,
+	60% {
+		transform: translateX(0);
+	}
+	80%,
+	to {
+		transform: translateX(-240px);
+	}
+}
