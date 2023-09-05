@@ -1,19 +1,11 @@
 import React from "react";
 
-import { TestComponent } from "./TestComponent";
+import { Table } from "./components/UI/Table/TableBody";
 
 import type { FC } from "react";
 
 import "./App.css";
 
-const text = "Text";
-
 export const App: FC = () => {
-  return (
-    <>
-      <h1>Blank page</h1>
-      <span>{text}</span>
-      <TestComponent />
-    </>
-  );
+  return <Table />;
 };
