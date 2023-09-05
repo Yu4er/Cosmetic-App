@@ -1,0 +1,48 @@
+.tab {
+	display: grid;
+	grid-template-columns: 24px 1fr;
+	gap: 16px;
+	cursor: pointer;
+	padding: 16px;
+	border-radius: 8px;
+	max-width: 100%;
+	align-items: center;
+	transition: all 0.2s;
+	&:hover {
+		transition: all 0.2s;
+		background-color: #bd68ca47;
+	}
+}
+.active {
+	background-color: #bd68ca;
+	transition: all 0.2s;
+	&:hover {
+		transition: all 0.2s;
+		background-color: #bd68ca;
+		.name {
+			color: #000;
+		}
+		.aside__pic path {
+			transition: all 0.2s;
+			fill: #000;
+		}
+	}
+	.name {
+		color: #fff;
+		transition: all 0.2s;
+	}
+	.aside__pic path {
+		transition: all 0.2s;
+		fill: #fff;
+	}
+}
+.name {
+	font-size: 16px;
+	font-weight: 500;
+}
+.aside__link-item {
+	@media (max-width: 1030px) {
+		border: 1px solid rgb(#000, 0.5);
+		border-radius: 8px;
+	}
+}
