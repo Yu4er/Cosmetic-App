@@ -3,19 +3,22 @@ import { Route, Routes } from "react-router-dom";
 
 import { Layout } from "./Layout/Layout";
 
-import { FormLayout } from "../Public/FormLayout";
-import { Login } from "../Public/Login";
-import { Register } from "../Public/Register";
 import { pathRoutes } from "../constants/pathRoutes";
+import { useAppSelector } from "../store/hooks";
+import { Login } from "../public/Login";
+import { Register } from "../public/Register";
+import { authSelectors } from "../store/features/auth/selectors";
 
 export function Router() {
+  const isAuth = useAppSelector(authSelectors.userLoginDataSelector);
+
   return (
     <Routes>
-      <Route path="auth/" element={<FormLayout />}>
+      <Route path="auth/">
         <Route path={pathRoutes.login} element={<Login />} />
         <Route path={pathRoutes.register} element={<Register />} />
       </Route>
-      <Route path="/" element={<Layout />}>
+      <Route element={<Layout isAuth={isAuth} />}>
         <Route path={pathRoutes.products} element={<div>products</div>} />
         <Route path={pathRoutes.users} element={<div>Users</div>} />
         <Route path={pathRoutes.category} element={<div>Category</div>} />

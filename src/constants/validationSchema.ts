@@ -7,10 +7,8 @@ interface IValidationSchema {
   password: string;
 }
 
-interface IFormSchema {
-  email: string;
-  password?: string;
-  confirm?: string;
+interface IFormSchema extends IValidationSchema {
+  confirm: string;
 }
 
 const validationSchema: Yup.ObjectSchema<IValidationSchema> =
@@ -31,13 +29,13 @@ const formSchema: Yup.ObjectSchema<IFormSchema> = Yup.object().shape({
     .matches(emailRegex, "Неверный email")
     .email("Неверный email"),
   password: Yup.string()
+    .required("Обязательное поле")
     .min(4, "Пароль должен быть длиннее 4 символов")
     .matches(/\d/, "Пароль должен содержать цифру")
     .matches(/[A-z]/, "Пароль должен содержать букву"),
-  confirm: Yup.string().oneOf(
-    [Yup.ref("password"), undefined],
-    "Пароли не совпадают"
-  ),
+  confirm: Yup.string()
+    .required("Обязательное поле")
+    .oneOf([Yup.ref("password")], "Пароли не совпадают"),
 });
 
 export { validationSchema, formSchema };

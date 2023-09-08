@@ -27,10 +27,6 @@
 		font-weight: 500;
 		text-align: left;
 	}
-	&__body {
-	}
-	&__form {
-	}
 	&__form-wrapper {
 		display: flex;
 		flex-direction: column;
@@ -82,7 +78,7 @@
 		position: absolute;
 		width: 30px;
 		height: 30px;
-		background: no-repeat center/16px url("../img/eye.svg");
+		background: no-repeat center/16px url("../assets/images/eye.svg");
 		right: 6px;
 		top: 24px;
 		margin: auto;

@@ -9,6 +9,6 @@ export const pathRoutes = {
 	banners: "banners",
 	seminars: "seminars",
 	promocodes: "promocodes",
-	login: "/auth/login",
-	register: "/auth/register",
+	login: "login",
+	register: "register",
 };
