@@ -1,0 +1,44 @@
+.formCheck {
+	margin-top: 12px;
+	&__label {
+		font-size: 16px;
+		font-weight: 500;
+		position: relative;
+		padding-left: 28px;
+		cursor: pointer;
+		&:before {
+			width: 16px;
+			height: 16px;
+			box-sizing: border-box;
+			border: 1px solid #ddd;
+			border-radius: 2px;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0px;
+			border-radius: 3px;
+		}
+		&:after {
+			width: 10px;
+			height: 10px;
+			box-sizing: border-box;
+			background-image: url(../../../assets/images/checkV.svg);
+			background-size: contain;
+			content: "";
+			position: absolute;
+			left: 3px;
+			top: 3px;
+			opacity: 0;
+			transition: all 0.1s linear;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+	&__input {
+		appearance: none;
+		&:checked + label:after {
+			opacity: 1;
+			transition: all 0.1s linear;
+		}
+	}
+}
