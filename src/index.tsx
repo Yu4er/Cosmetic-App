@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
+import { ModalContainer } from "./components/Modals/ModalContainer";
 import { store } from "./store/store";
 import { App } from "./App";
 
@@ -17,6 +18,7 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
         <App />
+        <ModalContainer />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

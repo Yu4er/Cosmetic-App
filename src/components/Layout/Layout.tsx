@@ -5,6 +5,7 @@ import style from "./Layout.module.scss";
 
 import { navList } from "../../constants/navigation";
 import { NavLink } from "../NavLink/NavLink";
+import { pathRoutes } from "../../constants/pathRoutes";
 
 interface IProtectedRoutesProps {
   isAuth?: string | null;
@@ -14,7 +15,7 @@ export function Layout({ isAuth }: IProtectedRoutesProps): JSX.Element {
   const location = useLocation();
 
   if (!isAuth) {
-    return <Navigate to="auth/login" state={location.pathname} />;
+    return <Navigate to={pathRoutes.login} state={location.pathname} />;
   }
 
   return (

@@ -11,4 +11,5 @@ export const pathRoutes = {
 	promocodes: "promocodes",
 	login: "login",
 	register: "register",
+	authorization: "auth",
 };

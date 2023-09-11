@@ -2,23 +2,25 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useToggle } from "@reactuses/core";
 
-import { Button } from "./UI/Button/Button";
-import { FormHeader } from "./UI/FormHeader/FormHeader";
+import { Button } from "./components/Button/Button";
+import { FormHeader } from "./components/FormHeader/FormHeader";
 import style from "./FormLayout.module.scss";
 
 import { formSchema } from "../constants/validationSchema";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { useShowPassword } from "../hooks/useShowPassword";
 import { authSelectors } from "../store/features/auth/selectors";
 import { fetchRegistration } from "../store/features/auth/thunks";
+import { pathRoutes } from "../constants/pathRoutes";
 
 export function Register() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const errorMessage = useAppSelector(authSelectors.errorMessageSelector);
   const regData = useAppSelector(authSelectors.userRegistrationDataSelector);
-  const { showPass, showPassword } = useShowPassword();
+  const [onPassword, togglePassword] = useToggle(true);
+  const [onConfirm, toggleConfirm] = useToggle(true);
   const {
     register,
     handleSubmit,
@@ -43,7 +45,7 @@ export function Register() {
     );
   }
   useEffect(() => {
-    regData && navigate("/login");
+    regData && navigate(pathRoutes.login);
   }, [dispatch, navigate, regData]);
 
   return (
@@ -76,14 +78,14 @@ export function Register() {
               <input
                 {...register("password")}
                 className="input"
-                type={showPass ? "password" : "text"}
+                type={onPassword ? "password" : "text"}
                 placeholder="Введите свой пароль"
                 aria-label="input field"
               />
               <button
                 title="show password"
                 type="button"
-                onClick={showPassword}
+                onClick={togglePassword}
                 className={style["mainForm__show"]}
               ></button>
             </div>
@@ -95,14 +97,14 @@ export function Register() {
               <input
                 {...register("confirm")}
                 className="input"
-                type={showPass ? "password" : "text"}
+                type={onConfirm ? "password" : "text"}
                 placeholder="Повторите пароль"
                 aria-label="input field"
               />
               <button
                 title="show password"
                 type="button"
-                onClick={showPassword}
+                onClick={toggleConfirm}
                 className={style["mainForm__show"]}
               ></button>
             </div>
@@ -117,7 +119,7 @@ export function Register() {
             </div>
             <div className={style["mainForm__button"]}>
               <Link
-                to={"/auth/login"}
+                to={`../${pathRoutes.login}`}
                 aria-label="login"
                 className={style["mainForm__register"]}
               >

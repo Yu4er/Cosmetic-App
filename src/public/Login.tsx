@@ -2,25 +2,28 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useToggle } from "@reactuses/core";
 
-import { RememberMe } from "./UI/RememberMe/RememberMe";
-import { Button } from "./UI/Button/Button";
-import { FormHeader } from "./UI/FormHeader/FormHeader";
+import { AuthCheckbox } from "./components/AuthCheckbox/AuthCheckbox";
+import { Button } from "./components/Button/Button";
+import { FormHeader } from "./components/FormHeader/FormHeader";
 import style from "./FormLayout.module.scss";
 
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { validationSchema } from "../constants/validationSchema";
 import { authSelectors } from "../store/features/auth/selectors";
 import { fetchAuthentication } from "../store/features/auth/thunks";
-import { useShowPassword } from "../hooks/useShowPassword";
+import { pathRoutes } from "../constants/pathRoutes";
 
 export function Login() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const userData = useAppSelector(authSelectors.userLoginDataSelector);
   const errorMessage = useAppSelector(authSelectors.errorMessageSelector);
-  const rememberMe = useAppSelector(authSelectors.rememberMeSelector);
-  const { showPass, showPassword } = useShowPassword();
+  const rememberMeCheckbox = useAppSelector(
+    authSelectors.rememberMeCheckboxSelector
+  );
+  const [on, toggle] = useToggle(true);
 
   const {
     register,
@@ -44,7 +47,7 @@ export function Login() {
         password,
       })
     );
-    if (rememberMe) {
+    if (rememberMeCheckbox) {
       localStorage.setItem("isAuth", JSON.stringify(userData));
     }
   }
@@ -92,14 +95,14 @@ export function Login() {
                   <input
                     {...register("password")}
                     className="input"
-                    type={showPass ? "password" : "text"}
+                    type={on ? "password" : "text"}
                     placeholder="Введите пароль"
                     aria-label="input field"
                   />
                   <button
                     title="show password"
                     type="button"
-                    onClick={showPassword}
+                    onClick={toggle}
                     className={style["mainForm__show"]}
                   ></button>
                 </div>
@@ -108,7 +111,7 @@ export function Login() {
                 )}
               </div>
             </div>
-            <RememberMe />
+            <AuthCheckbox />
             <div className={style["mainForm__buttons-wrapper"]}>
               {errorMessage && (
                 <span className={style["mainForm__error"]}>{errorMessage}</span>
@@ -118,7 +121,7 @@ export function Login() {
               </div>
               <div className={style["mainForm__button"]}>
                 <Link
-                  to={"/auth/register"}
+                  to={`../${pathRoutes.register}`}
                   aria-label="register"
                   className={style["mainForm__register"]}
                 >
