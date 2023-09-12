@@ -1,6 +1,6 @@
 import React from "react";
 
-import style from "../TheadCheckbox/TableCheckboxes.module.scss";
+import style from "../THeadCheckbox/TableCheckboxes.module.scss";
 
 interface IRowCheckbox {
   id: string;
@@ -8,11 +8,11 @@ interface IRowCheckbox {
   checkboxHandler?: (id: string) => void;
 }
 
-function stopProp(e: React.MouseEvent) {
-  e.stopPropagation();
+function stopPropagation(event: React.MouseEvent) {
+  event.stopPropagation();
 }
 
-export function TbodyCheckbox({
+export function TBodyCheckbox({
   isChecked,
   checkboxHandler,
   id,
@@ -22,7 +22,7 @@ export function TbodyCheckbox({
   }
 
   return (
-    <td onClick={stopProp}>
+    <td onClick={stopPropagation}>
       <div className={style["content-sales-table__wrapper"]}>
         <input
           placeholder="checkbox"

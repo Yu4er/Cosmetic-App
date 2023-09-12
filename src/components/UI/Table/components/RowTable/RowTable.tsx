@@ -1,10 +1,10 @@
 import React, { memo } from "react";
 
 import type { ITableColumnsProps } from "../../../../../interfaces/tableColumns";
+import type { IProductData } from "../../../../../interfaces/mockInterfaces";
 
 import style from "../../Table.module.scss";
-import { TbodyCheckbox } from "../TbodyCheckbox/TbodyCheckbox";
-import { IProductData } from "../../../../../interfaces/mockInterfaces";
+import { TBodyCheckbox } from "../TBodyCheckbox/TBodyCheckbox";
 
 interface IRowTable {
   dataRow: IProductData;
@@ -28,7 +28,7 @@ export const RowTable = memo(
     return (
       <tr className={isChecked ? style["_active"] : undefined}>
         {checkboxHandler && (
-          <TbodyCheckbox
+          <TBodyCheckbox
             isChecked={isChecked}
             id={dataRow.id}
             checkboxHandler={checkboxHandler}

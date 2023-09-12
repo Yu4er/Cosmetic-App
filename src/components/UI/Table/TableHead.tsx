@@ -1,11 +1,11 @@
 import React from "react";
 
 import style from "./Table.module.scss";
-import { TheadCheckbox } from "./components/TheadCheckbox/TheadCheckbox";
+import { THeadCheckbox } from "./components/THeadCheckbox/THeadCheckbox";
 
 interface ITableHeadProps {
-  isChecked?: boolean | undefined;
-  handleAllClick?: () => void | undefined;
+  isChecked?: boolean;
+  handleAllClick?: () => void;
   theadList: string[];
 }
 
@@ -18,7 +18,7 @@ export function TableHead({
     <thead className={style["content-sales-table__header"]}>
       <tr>
         {handleAllClick && (
-          <TheadCheckbox isChecked={isChecked} callback={handleAllClick} />
+          <THeadCheckbox isChecked={isChecked} callback={handleAllClick} />
         )}
         {theadList.map((item) => (
           <th key={item}>{item}</th>

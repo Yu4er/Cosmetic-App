@@ -4,14 +4,17 @@ interface IUsePaginationProps {
   lastPage: number;
 }
 
+const INITIAL_PAGE = 1;
+const INITIAL_LIMIT = 10;
+
 export function usePagination({ lastPage }: IUsePaginationProps) {
-  const [pagination, setPagination] = useState(1);
-  const [limitRows, setLimitRows] = useState(10);
+  const [pagination, setPagination] = useState(INITIAL_PAGE);
+  const [limitRows, setLimitRows] = useState(INITIAL_LIMIT);
 
   const handleLimitChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = +e.target.value;
     setLimitRows(value);
-    setPagination(1);
+    setPagination(INITIAL_PAGE);
   };
 
   function handleChangePage(e: React.MouseEvent<HTMLElement>) {

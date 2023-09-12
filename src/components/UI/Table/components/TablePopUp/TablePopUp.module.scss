@@ -7,13 +7,10 @@
 	width: -moz-fit-content;
 	width: fit-content;
 	height: 100%;
-	display: none;
-	&.active {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		flex-direction: column;
-	}
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-direction: column;
 
 	&__content {
 		position: relative;

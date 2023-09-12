@@ -7,7 +7,7 @@ interface ITheadCheckbox {
   callback: () => void | undefined;
 }
 
-export function TheadCheckbox({
+export function THeadCheckbox({
   isChecked,
   callback,
 }: ITheadCheckbox): JSX.Element {

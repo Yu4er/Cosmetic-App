@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SelectDraw } from "./SelectDraw";
+import { SelectLimit } from "./SelectLimit";
 import style from "./Pagination.module.scss";
 
 import { drawLimitCounter } from "../../../../../constants/drawLimitCounter";
@@ -29,7 +29,7 @@ export function Pagination({
             onChange={handleLimitChange}
           >
             {drawLimitCounter.map((item: number) => (
-              <SelectDraw key={item} value={item} />
+              <SelectLimit key={item} value={item} />
             ))}
           </select>
         </div>
