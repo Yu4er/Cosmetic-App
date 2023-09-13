@@ -14,7 +14,7 @@ export function Router() {
 
   return (
     <Routes>
-      <Route path="auth/">
+      <Route path={pathRoutes.authorization}>
         <Route path={pathRoutes.login} element={<Login />} />
         <Route path={pathRoutes.register} element={<Register />} />
       </Route>

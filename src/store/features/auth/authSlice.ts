@@ -6,7 +6,7 @@ import { fetchAuthentication, fetchRegistration } from "./thunks";
 const initialState: IAuthDataState = {
   isLoading: false,
   error: "",
-  rememberMe: false,
+  rememberMeCheck: false,
   userLoginData: localStorage.getItem("isAuth") ?? undefined,
   userRegistrationData: undefined,
 };
@@ -16,7 +16,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setRemember: (state, action) => {
-      state.rememberMe = action.payload;
+      state.rememberMeCheck = action.payload;
     },
     logOut: (state) => {
       state.userLoginData = undefined;

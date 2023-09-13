@@ -1,3 +1,5 @@
+@use "./assets/styles/colors.scss";
+
 * {
 	padding: 0;
 	margin: 0;
@@ -5,7 +7,7 @@
 }
 body {
 	font-family: "Inter", sans-serif;
-	background: #f8f8fa;
+	background: colors.$bg-gray;
 }
 p {
 	margin: 0;
@@ -44,7 +46,7 @@ input {
 select {
 	outline: none;
 	box-shadow: none;
-	border: 1px solid #d0d3da;
+	border: 1px solid colors.$gray;
 	&:focus {
 		border-color: inherit;
 	}
@@ -55,12 +57,12 @@ hr {
 }
 .input {
 	border-radius: 8px;
-	border: 1px solid #d0d3da;
-	background: #fff;
+	border: 1px solid colors.$gray;
+	background: colors.$white;
 	padding: 10px;
 	font-size: 14px;
 	&::placeholder {
-		color: #737680;
+		color: colors.$dark-gray;
 	}
 }
 .errorText {

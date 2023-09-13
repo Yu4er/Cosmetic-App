@@ -1,7 +1,7 @@
 interface IAuthDataState {
   isLoading: boolean;
   error: string;
-  rememberMe: boolean;
+  rememberMeCheck: boolean;
   userLoginData?: string | null;
   userRegistrationData?: string | null;
 }
