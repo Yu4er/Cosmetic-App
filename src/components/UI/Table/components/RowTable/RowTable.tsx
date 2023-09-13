@@ -1,18 +1,23 @@
 import React, { memo } from "react";
 
 import type { ITableColumnsProps } from "../../../../../interfaces/tableColumns";
-import type { IProductData } from "../../../../../interfaces/mockInterfaces";
+import type {
+  IProductData,
+  IUsersData,
+} from "../../../../../interfaces/mockInterfaces";
 
 import style from "../../Table.module.scss";
 import { TBodyCheckbox } from "../TBodyCheckbox/TBodyCheckbox";
 
 interface IRowTable {
-  dataRow: IProductData;
+  dataRow: TableDataType;
   columns: ITableColumnsProps[];
   checkboxHandler?: (id: string) => void;
   isChecked?: boolean;
   idModal?: string | null;
 }
+
+type TableDataType = IProductData | IUsersData;
 
 export const RowTable = memo(
   function component({

@@ -8,19 +8,17 @@ import { authSelectors } from "../../../store/features/auth/selectors";
 
 export function AuthCheckbox() {
   const dispatch = useAppDispatch();
-  const rememberMeCheckbox = useAppSelector(
-    authSelectors.rememberMeCheckboxSelector
-  );
+  const rememberMeCheck = useAppSelector(authSelectors.rememberMeCheckSelector);
 
   const change = useCallback(() => {
-    dispatch(setRemember(!rememberMeCheckbox));
-  }, [dispatch, rememberMeCheckbox]);
+    dispatch(setRemember(!rememberMeCheck));
+  }, [dispatch, rememberMeCheck]);
 
   return (
     <div className={style["formCheck"]}>
       <input
         onChange={change}
-        checked={rememberMeCheckbox}
+        checked={rememberMeCheck}
         type="checkbox"
         className={style["formCheck__input"]}
         id="rememberMe"

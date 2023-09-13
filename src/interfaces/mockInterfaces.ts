@@ -34,5 +34,13 @@ interface IProductVariationsData {
     value: string;
   };
 }
-
-export type { IProductData };
+interface IUsersData {
+  id: string;
+  email: string | null;
+  phone: string;
+  name: string;
+  lastName: string | null;
+  firmName: string | null;
+  role: string;
+}
+export type { IProductData, IUsersData };

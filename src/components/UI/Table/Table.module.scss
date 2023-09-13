@@ -1,3 +1,5 @@
+@use "../../../assets/styles/colors.scss";
+
 .table-block {
 	&__header {
 		border-bottom: 1px solid rgb(#000, 0.2);
@@ -8,7 +10,7 @@
 		position: sticky;
 		top: 0;
 		left: 0;
-		background-color: #fff;
+		background-color: colors.$white;
 		z-index: 33;
 		padding: 30px;
 		overflow: hidden;
@@ -26,7 +28,7 @@
 			background-color: #f9f9fd;
 		}
 		&::-webkit-scrollbar-thumb {
-			background-color: #c06ecc;
+			background-color: colors.$pink;
 			border-radius: 10px;
 		}
 	}
@@ -81,6 +83,7 @@
 		text-shadow: none;
 		transition: all 0.4s;
 		width: auto;
+		max-width: 320px;
 		padding: 8px;
 		&:last-child {
 			text-align: center;
@@ -89,13 +92,10 @@
 	&__header {
 		border-top: 1px solid #ebecef;
 		border-bottom: 1px solid #ebecef;
-		background: #f8f8fa;
+		background: colors.$bg-gray;
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0px;
 		z-index: 50;
-	}
-
-	&__body {
 	}
 }

@@ -1,0 +1,43 @@
+.users-page {
+	tr {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	th:last-child,
+	td:last-child {
+		text-align: unset;
+	}
+}
+.table-block {
+	&__header {
+		border-bottom: 1px solid rgb(#000, 0.2);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		z-index: 33;
+		padding: 30px;
+		overflow: hidden;
+		@media (max-width: 550px) {
+			position: unset;
+			padding: 0;
+		}
+	}
+
+	&__content {
+		height: 672px;
+		overflow-y: scroll;
+		&::-webkit-scrollbar {
+			width: 7px;
+			background-color: #f9f9fd;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: #c06ecc;
+			border-radius: 10px;
+		}
+	}
+}
