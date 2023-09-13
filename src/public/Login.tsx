@@ -20,10 +20,8 @@ export function Login() {
   const navigate = useNavigate();
   const userData = useAppSelector(authSelectors.userLoginDataSelector);
   const errorMessage = useAppSelector(authSelectors.errorMessageSelector);
-  const rememberMeCheckbox = useAppSelector(
-    authSelectors.rememberMeCheckboxSelector
-  );
-  const [on, toggle] = useToggle(true);
+  const rememberMeCheck = useAppSelector(authSelectors.rememberMeCheckSelector);
+  const [showPassword, togglePassword] = useToggle(true);
 
   const {
     register,
@@ -47,7 +45,7 @@ export function Login() {
         password,
       })
     );
-    if (rememberMeCheckbox) {
+    if (rememberMeCheck) {
       localStorage.setItem("isAuth", JSON.stringify(userData));
     }
   }
@@ -95,14 +93,14 @@ export function Login() {
                   <input
                     {...register("password")}
                     className="input"
-                    type={on ? "password" : "text"}
+                    type={showPassword ? "password" : "text"}
                     placeholder="Введите пароль"
                     aria-label="input field"
                   />
                   <button
                     title="show password"
                     type="button"
-                    onClick={toggle}
+                    onClick={togglePassword}
                     className={style["mainForm__show"]}
                   ></button>
                 </div>

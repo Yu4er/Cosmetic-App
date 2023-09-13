@@ -9,7 +9,7 @@ import { ComponentsList } from "../../constants/modalList";
 import { closeModal } from "../../store/features/modal/modalSlice";
 import { modalSelectors } from "../../store/features/modal/selectors";
 
-function stopProp(event: React.MouseEvent<HTMLDivElement>) {
+function stopPropagation(event: React.MouseEvent<HTMLDivElement>) {
   event.stopPropagation();
 }
 export function ModalContainer(): ReactPortal | null {
@@ -37,7 +37,7 @@ export function ModalContainer(): ReactPortal | null {
 
   return createPortal(
     <div className={style["modal"]} onClick={closeModalHandler}>
-      <div className={style["modal__content"]} onClick={stopProp}>
+      <div className={style["modal__content"]} onClick={stopPropagation}>
         <div className={style["modal__body"]}>{ComponentsList[modalId]}</div>
       </div>
     </div>,

@@ -19,8 +19,8 @@ export function Register() {
   const navigate = useNavigate();
   const errorMessage = useAppSelector(authSelectors.errorMessageSelector);
   const regData = useAppSelector(authSelectors.userRegistrationDataSelector);
-  const [onPassword, togglePassword] = useToggle(true);
-  const [onConfirm, toggleConfirm] = useToggle(true);
+  const [showPassword, togglePassword] = useToggle(true);
+  const [showConfirm, toggleConfirm] = useToggle(true);
   const {
     register,
     handleSubmit,
@@ -78,7 +78,7 @@ export function Register() {
               <input
                 {...register("password")}
                 className="input"
-                type={onPassword ? "password" : "text"}
+                type={showPassword ? "password" : "text"}
                 placeholder="Введите свой пароль"
                 aria-label="input field"
               />
@@ -97,7 +97,7 @@ export function Register() {
               <input
                 {...register("confirm")}
                 className="input"
-                type={onConfirm ? "password" : "text"}
+                type={showConfirm ? "password" : "text"}
                 placeholder="Повторите пароль"
                 aria-label="input field"
               />

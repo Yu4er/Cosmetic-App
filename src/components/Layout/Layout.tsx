@@ -15,7 +15,9 @@ export function Layout({ isAuth }: IProtectedRoutesProps): JSX.Element {
   const location = useLocation();
 
   if (!isAuth) {
-    return <Navigate to={pathRoutes.login} state={location.pathname} />;
+    return (
+      <Navigate to={`auth/${pathRoutes.login}`} state={location.pathname} />
+    );
   }
 
   return (
