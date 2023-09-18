@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Clients } from "./Pages";
+import { Category, Clients } from "./Pages";
 import { Layout } from "./Layout/Layout";
 
 import { pathRoutes } from "../constants/pathRoutes";
@@ -22,7 +22,7 @@ export function Router() {
       <Route element={<Layout isAuth={isAuth} />}>
         <Route path={pathRoutes.products} element={<div>products</div>} />
         <Route path={pathRoutes.users} element={<Clients />} />
-        <Route path={pathRoutes.category} element={<div>Category</div>} />
+        <Route path={pathRoutes.category} element={<Category />} />
         <Route path={pathRoutes.cities} element={<div>Cities</div>} />
         <Route path={pathRoutes.brands} element={<div>Brands</div>} />
         <Route path={pathRoutes.protocols} element={<div>Protocols</div>} />

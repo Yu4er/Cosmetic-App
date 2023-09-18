@@ -43,4 +43,17 @@ interface IUsersData {
   firmName: string | null;
   role: string;
 }
-export type { IProductData, IUsersData };
+
+interface ICatalogData {
+  id: string;
+  name: string;
+  position: number;
+}
+
+interface ISubCatalogData extends ICatalogData {
+  catalog_product?: {
+    id: string;
+  };
+}
+
+export type { IProductData, IUsersData, ICatalogData, ISubCatalogData };
