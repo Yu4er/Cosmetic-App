@@ -16,11 +16,11 @@
 	}
 }
 .active {
-	background-color: #bd68ca;
+	background-color: colors.$pink;
 	transition: all 0.2s;
 	&:hover {
 		transition: all 0.2s;
-		background-color: #bd68ca;
+		background-color: colors.$pink;
 		.name {
 			color: black;
 		}

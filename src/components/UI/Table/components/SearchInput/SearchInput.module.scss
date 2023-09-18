@@ -1,0 +1,32 @@
+@use "../../../../../assets/styles/colors.scss";
+
+.pagination {
+	&__search {
+		min-height: 40px;
+		min-width: 320px;
+		margin: auto 2rem auto auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+}
+.search {
+	border-radius: 4px;
+	border: 1px solid #d8dae0;
+	background: colors.$white;
+	padding: 6px 24px 6px 36px;
+	background: url("../../../../../assets/images/lupa.svg") 12px center/16px no-repeat;
+	color: #737680;
+	font-size: 14px;
+	height: 40px;
+}
+.delete {
+	width: 30px;
+	background: url("../../../../../assets/images/close.svg") center/16px no-repeat;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
