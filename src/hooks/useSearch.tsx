@@ -3,7 +3,6 @@ import { useDebounce } from "@reactuses/core";
 
 export function useSearch() {
   const [searchValue, setSearchValue] = useState("");
-  console.log(searchValue);
 
   const debouncedSearchTerm = useDebounce(searchValue, 500);
 

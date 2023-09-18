@@ -14,9 +14,6 @@ const fetchLoadUsers = createAsyncThunk<
     { limitRowsOnPage, paginationObj, searchString },
     { rejectWithValue }
   ) => {
-    console.log("==============================================");
-    console.log(limitRowsOnPage, paginationObj, searchString);
-    console.log("==============================================");
     try {
       const response = await clientService.getUsers(
         limitRowsOnPage,

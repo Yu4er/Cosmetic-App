@@ -13,27 +13,27 @@ import { SearchInput } from "../../UI/Table/components/SearchInput/SearchInput";
 import { fetchLoadUsers } from "../../../store/features/userSlice/thunks";
 import { usersSelectors } from "../../../store/features/userSlice/selectors";
 
+const columns: ITableColumnsProps[] = [
+  {
+    name: "ФИ",
+    selector: (row) => {
+      return row.name + " " + row.lastName;
+    },
+  },
+  {
+    name: "Почта",
+    selector: (row) => row.email,
+  },
+  {
+    name: "Телефон",
+    selector: (row) => row.phone,
+  },
+];
+
 export function Clients() {
   const dispatch = useAppDispatch();
   const users = useAppSelector(usersSelectors.usersDataSelector);
   const lastPage = useAppSelector(usersSelectors.usersLastPageSelector);
-
-  const columns: ITableColumnsProps[] = [
-    {
-      name: "ФИ",
-      selector: (row) => {
-        return row.name + " " + row.lastName;
-      },
-    },
-    {
-      name: "Почта",
-      selector: (row) => row.email,
-    },
-    {
-      name: "Телефон",
-      selector: (row) => row.phone,
-    },
-  ];
 
   const { pagination, limitRows, handleLimitChange, handleChangePage } =
     usePagination({ lastPage });

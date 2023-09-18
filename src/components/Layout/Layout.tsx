@@ -3,7 +3,7 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 import style from "./Layout.module.scss";
 
-import { navList } from "../../constants/navigation.jsx";
+import { navList } from "../../constants/navigation";
 import { NavLink } from "../NavLink/NavLink";
 import { pathRoutes } from "../../constants/pathRoutes";
 
