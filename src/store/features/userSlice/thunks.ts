@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
 import { IUsersResponse, IUsersStateObj } from "./types";
 
 import { clientService } from "../../../services/clientService";
+
 
 const fetchLoadUsers = createAsyncThunk<
   IUsersResponse,
