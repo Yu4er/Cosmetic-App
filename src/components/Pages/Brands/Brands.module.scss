@@ -1,0 +1,23 @@
+.brands-page {
+	position: relative;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 3em;
+	th:last-child {
+		text-align: left;
+	}
+	td:last-child {
+		text-align: left;
+	}
+}
+
+.table-block {
+	font-size: 14px;
+	color: #737680;
+	font-weight: 500;
+}
+
+.table-block td {
+	padding: 10px 8px;
+}

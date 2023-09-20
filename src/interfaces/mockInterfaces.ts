@@ -43,4 +43,11 @@ interface IUsersData {
   firmName: string | null;
   role: string;
 }
-export type { IProductData, IUsersData };
+interface IBrandsData {
+  id: string;
+  name: string;
+  icon: string;
+  margin: number;
+}
+
+export type { IProductData, IUsersData, IBrandsData };
