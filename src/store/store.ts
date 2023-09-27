@@ -3,12 +3,14 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { authSlice } from "./features/auth/authSlice";
 import { modalSlice } from "./features/modal/modalSlice";
 import { usersSlice } from "./features/userSlice/userSlice";
+import { brandsSlice } from "./features/brandSlice/brandSlice";
 
 const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     modal: modalSlice.reducer,
     users: usersSlice.reducer,
+    brands: brandsSlice.reducer,
   },
 });
 

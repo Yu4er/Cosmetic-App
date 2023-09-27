@@ -11,6 +11,30 @@ interface IFormSchema extends IValidationSchema {
   confirm: string;
 }
 
+interface IValidationFileSchema {
+  name: string;
+  files: unknown;
+}
+
+const validationFile: Yup.ObjectSchema<IValidationFileSchema> =
+  Yup.object().shape({
+    name: Yup.string().required("Обязательное поле"),
+    files: Yup.mixed().test(
+      "is-valid-size",
+      "Нельзя загружать больше 200KB",
+      (value) => {
+        const file = value as FileList;
+
+        if (file.length === 0) {
+          return true;
+        } else {
+          const files = value as File;
+          return files.size <= 100000;
+        }
+      }
+    ),
+  });
+
 const validationSchema: Yup.ObjectSchema<IValidationSchema> =
   Yup.object().shape({
     email: Yup.string()
@@ -38,4 +62,4 @@ const formSchema: Yup.ObjectSchema<IFormSchema> = Yup.object().shape({
     .oneOf([Yup.ref("password")], "Пароли не совпадают"),
 });
 
-export { validationSchema, formSchema };
+export { validationSchema, formSchema, validationFile };
