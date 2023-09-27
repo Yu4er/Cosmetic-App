@@ -11,7 +11,7 @@ import { brandsSelectors } from "../../../../../store/features/brandSlice/select
 
 export function TableContainer() {
   const dispatch = useAppDispatch();
-  const dataBrands = useAppSelector(brandsSelectors.brandsDataSelector);
+  const brandsData = useAppSelector(brandsSelectors.brandsDataSelector);
 
   useEffect(() => {
     dispatch(fetchLoadBrands({}));
@@ -26,7 +26,7 @@ export function TableContainer() {
         </tr>
       </thead>
       <tbody className={style["table-block__table"]}>
-        {dataBrands.map((item: IBrandsData) => (
+        {brandsData.map((item: IBrandsData) => (
           <TableRowField key={item.id} item={item} />
         ))}
       </tbody>

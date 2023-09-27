@@ -1,6 +1,5 @@
 import React from "react";
 
-// import FileFieldInput from "./components/FileFieldInput/FileFieldInput";
 import { TableContainer } from "./components/TableContainer/TableContainer";
 import style from "./Brands.module.scss";
 import { FileFieldInput } from "./components/FileFieldInput/FileFieldInput";

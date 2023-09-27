@@ -3,26 +3,24 @@ import React from "react";
 import style from "./TableRowField.module.scss";
 
 interface ITableRowFieldProps {
-  item: {
-    icon: string;
-    name: string;
-  };
+  icon: string;
+  name: string;
 }
 
-export function TableRowField({ item }: ITableRowFieldProps) {
+export function TableRowField({ icon, name }: ITableRowFieldProps) {
   return (
     <tr className={style["table-block__item"]}>
       <td
         className={style["table-block__image"]}
-        key={`${item.name}${Math.random()}`}
+        key={`${name}${Math.random()}`}
       >
-        <img src={item.icon} alt="icon"></img>
+        <img src={icon} alt="icon" />
       </td>
       <td
         className={style["table-block__name"]}
-        key={`${item.name}${Math.random()}`}
+        key={`${name}${Math.random()}`}
       >
-        {item.name}
+        {icon}
       </td>
       <td className={style["table-block__buttons"]}>
         <button className="edit" type="button"></button>
