@@ -23,9 +23,6 @@ class UserService {
     }
 
     try {
-      const response = await axios.get("http://localhost:3001/clients");
-      const usersData = response.data;
-
       if (searchString) {
         const response = await axios.get(`http://localhost:3001/clients?q=${searchString}`);
         const filteredData = response.data;
@@ -35,7 +32,9 @@ class UserService {
           lastPage: getLastPage(filteredData.length),
         };
       }
-    
+
+		const response = await axios.get("http://localhost:3001/clients");
+    const usersData = response.data;
     const startIndex = (pagination - 1) * limitView;
     const endIndex = startIndex + limitView;
     const data = usersData.slice(startIndex, endIndex);
@@ -43,11 +42,6 @@ class UserService {
     return { data, lengthData:usersData.length, lastPage: getLastPage(usersData.length) };
     } catch (error) {
       console.error('Ошибка при получении данных:', error);
-      return {
-        data: [],
-        lengthData: 0,
-        lastPage: 0,
-      };
     }
   }
 }
