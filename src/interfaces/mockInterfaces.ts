@@ -55,5 +55,11 @@ interface ISubCatalogData extends ICatalogData {
     id: string;
   };
 }
+interface IBrandsData {
+  id: string;
+  name: string;
+  icon: string;
+  margin: number;
+}
 
 export type { IProductData, IUsersData, ICatalogData, ISubCatalogData };

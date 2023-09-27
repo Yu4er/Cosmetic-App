@@ -4,6 +4,7 @@ import { authSlice } from "./features/auth/authSlice";
 import { modalSlice } from "./features/modal/modalSlice";
 import { usersSlice } from "./features/userSlice/userSlice";
 import { categorySlice } from "./features/categorySlice/categorySlice";
+import { brandsSlice } from "./features/brandSlice/brandSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     modal: modalSlice.reducer,
     users: usersSlice.reducer,
     category: categorySlice.reducer,
+    brands: brandsSlice.reducer,
   },
 });
 
