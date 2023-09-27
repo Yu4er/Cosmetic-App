@@ -27,7 +27,7 @@ export function TableContainer() {
       </thead>
       <tbody className={style["table-block__table"]}>
         {brandsData.map((item: IBrandsData) => (
-          <TableRowField key={item.id} item={item} />
+          <TableRowField key={item.id} icon={item.icon} name={item.name} />
         ))}
       </tbody>
     </table>

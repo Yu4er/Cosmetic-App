@@ -9,6 +9,7 @@ import { useAppSelector } from "../store/hooks";
 import { Login } from "../public/Login";
 import { Register } from "../public/Register";
 import { authSelectors } from "../store/features/auth/selectors";
+import { Orders } from "./Pages/Orders/Orders";
 
 export function Router() {
   const isAuth = useAppSelector(authSelectors.userLoginDataSelector);
@@ -16,6 +17,7 @@ export function Router() {
   return (
     <Routes>
       <Route path={pathRoutes.authorization}>
+        chore
         <Route path={pathRoutes.login} element={<Login />} />
         <Route path={pathRoutes.register} element={<Register />} />
       </Route>
@@ -26,7 +28,7 @@ export function Router() {
         <Route path={pathRoutes.cities} element={<div>Cities</div>} />
         <Route path={pathRoutes.brands} element={<Brands />} />
         <Route path={pathRoutes.protocols} element={<div>Protocols</div>} />
-        <Route path={pathRoutes.orders} element={<div>Orders</div>} />
+        <Route path={pathRoutes.orders} element={<Orders />} />
         <Route path={pathRoutes.banners} element={<div>Banners</div>} />
         <Route path={pathRoutes.seminars} element={<div>Seminars</div>} />
         <Route path={pathRoutes.promocodes} element={<div>Promocodes</div>} />

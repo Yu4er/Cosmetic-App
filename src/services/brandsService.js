@@ -1,4 +1,5 @@
-import { brandsMockData } from "../mocks/brandsMockData";
+import axios from "axios";
+import { showLog } from "../constants/logger";
 
 class BrandsService {
 	static instance;
@@ -10,9 +11,9 @@ class BrandsService {
 	}
 
 	async getBrands() {
-		// eslint-disable-next-line no-undef -- need for debugging
-		console.info("[BrandsService:getBrands]", {});
-		const data = brandsMockData;
+		showLog("[BrandsService:getBrands]", {})
+		const response = await axios.get("http://localhost:3001/brands");
+		const data = response.data;
 		return { data };
 	}
 }

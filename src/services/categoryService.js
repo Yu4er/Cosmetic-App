@@ -1,5 +1,5 @@
-import { catalogMockData } from "../mocks/catalogMockData";
-import { subCatalogMockData } from "../mocks/subCatalogMockData";
+import axios from "axios";
+import { showLog } from "../constants/logger";
 
 class CategoryService {
 	static instance;
@@ -10,24 +10,17 @@ class CategoryService {
 		return CategoryService.instance;
 	}
 
-	async getCatalog(searchString) {
-		// eslint-disable-next-line no-undef -- need for debugging
-		console.info("[CategoryService:getCatalog]", "LoadCatalog", searchString);
-
-		if (searchString) {
-			return  {data: catalogMockData};
-		}
-
-		return  {data: catalogMockData};
+	async getCatalog() {
+		showLog("[CategoryService:getCatalog]", "LoadCatalog")
+		const response = await axios.get("http://localhost:3001/catalog");
+		return  {data: response.data};
 	}
-	async getSubCatalog(searchString) {
-		// eslint-disable-next-line no-undef -- need for debugging
-		console.info("[CategoryService:getCatalog]", "LoadSubCatalog", searchString);
-		
-		if (searchString) {
-			return  {data: subCatalogMockData};
-		}
-		return  {data: subCatalogMockData};
+	async getSubCatalog({position}) {
+		showLog("[CategoryService:getCatalog]", "LoadSubCatalog", "position", position)
+		const response = await axios.get(`http://localhost:3001/subCatalog?position=${position}`);
+		return  {data: response.data};
 	}
 }
 export const categoryService = CategoryService.getInstance();
+
+

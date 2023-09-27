@@ -2,6 +2,7 @@ import React, { memo } from "react";
 
 import type { ITableColumnsProps } from "../../../../../interfaces/tableColumns";
 import type {
+  IOrdersData,
   IProductData,
   IUsersData,
 } from "../../../../../interfaces/mockInterfaces";
@@ -17,7 +18,7 @@ interface IRowTable {
   idModal?: string | null;
 }
 
-type TableDataType = IProductData | IUsersData;
+type TableDataType = IProductData | IUsersData | IOrdersData;
 
 export const RowTable = memo(
   function component({

@@ -7,7 +7,7 @@ import { brandsService } from "../../../services/brandsService";
 export const fetchLoadBrands = createAsyncThunk<
   IBrandsResponse,
   { rejectValue?: string }
->("products/fetchLoadCatalogs", async (_, { rejectWithValue }) => {
+>("brands/fetchLoadCatalogs", async (_, { rejectWithValue }) => {
   try {
     const response = await brandsService.getBrands();
     return response;

@@ -14,7 +14,7 @@ interface ICatalogsDataResponse {
   data: ICatalogData[] | ISubCatalogData[];
 }
 interface ICategoryStateObj {
-  searchString?: string;
+  position?: number;
 }
 
 export type { ICatalogDataState, ICatalogsDataResponse, ICategoryStateObj };

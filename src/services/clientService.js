@@ -1,4 +1,5 @@
 import axios from "axios";
+import { showLog } from "../constants/logger";
 // import { usersMockData } from "../mocks/usersMockData";
 
 class UserService {
@@ -11,12 +12,11 @@ class UserService {
   }
 
   async getUsers(limitView = 10, pagination = 1, searchString) {
-    // eslint-disable-next-line no-undef -- need for debugging
-    console.info("[UserService:getUsers]", {
+		showLog("[UserService:getUsers]", {
       limitView,
       pagination,
       searchString,
-    });
+    })
 
     function getLastPage(length) {
       return Math.ceil(length / limitView);

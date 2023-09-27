@@ -17,8 +17,8 @@ export function usePagination({ lastPage }: IUsePaginationProps) {
     setPagination(INITIAL_PAGE);
   };
 
-  function handleChangePage(e: React.MouseEvent<HTMLElement>) {
-    switch (e.currentTarget.dataset.page) {
+  function handleChangePage(event: React.MouseEvent<HTMLElement>) {
+    switch (event.currentTarget.dataset.page) {
       case "-": {
         if (pagination > 1) {
           setPagination((prev) => prev - 1);
