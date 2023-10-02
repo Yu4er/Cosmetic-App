@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-
-import { authSlice } from "./features/auth/authSlice";
-import { modalSlice } from "./features/modal/modalSlice";
-import { usersSlice } from "./features/userSlice/userSlice";
-import { categorySlice } from "./features/categorySlice/categorySlice";
-import { brandsSlice } from "./features/brandSlice/brandSlice";
+import {
+  authSlice,
+  brandsSlice,
+  categorySlice,
+  modalSlice,
+  ordersSlice,
+  usersSlice,
+} from "./features";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +15,7 @@ const store = configureStore({
     users: usersSlice.reducer,
     category: categorySlice.reducer,
     brands: brandsSlice.reducer,
+    orders: ordersSlice.reducer,
   },
 });
 

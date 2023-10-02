@@ -17,50 +17,27 @@ export function Category() {
   const dispatch = useAppDispatch();
   const catalog = useAppSelector(categorySelectors.catalogDataSelector);
   const subCatalog = useAppSelector(categorySelectors.subCatalogDataSelector);
-  const [position, setPosition] = useState<number | null>();
-  const [subData, setSubData] = useState<ISubCatalogData[]>([]);
+  const [position, setPosition] = useState<number>();
 
   const [searchStringCatalog, setSearchStringCatalog] = useState<string>("");
   const [searchStringSubCatalog, setSearchStringSubCatalog] =
     useState<string>("");
 
   function selectCategory(position: number) {
-    dispatch(fetchLoadSubCatalog({}));
     setPosition(position);
   }
 
   useEffect(() => {
-    const loadCatalog = async () => {
-      await dispatch(
-        fetchLoadCatalog({
-          searchString: searchStringCatalog,
-        })
-      );
-    };
+    dispatch(fetchLoadCatalog({}));
+  }, [dispatch, searchStringCatalog]);
 
-    const loadSubCatalog = async () => {
-      await dispatch(
-        fetchLoadSubCatalog({
-          searchString: searchStringSubCatalog,
-        })
-      );
-    };
-
-    if (position === null) {
-      setSubData([]);
-    } else {
-      setSubData(subCatalog.filter((item) => item.position === position));
-      loadSubCatalog();
-    }
-
-    loadCatalog();
-  }, [
-    dispatch,
-    searchStringCatalog,
-    searchStringSubCatalog,
-    subCatalog,
-    position,
-  ]);
+  useEffect(() => {
+    dispatch(
+      fetchLoadSubCatalog({
+        position: position,
+      })
+    );
+  }, [dispatch, searchStringSubCatalog, position]);
 
   return (
     <div className={style["category"]}>
@@ -74,7 +51,7 @@ export function Category() {
           />
           <InnerContentTable data={catalog} callback={selectCategory} />
         </div>
-        {subData.length > 0 ? (
+        {subCatalog.length > 0 ? (
           <div className={style["category__table table"]}>
             <ButtonBlock
               text={"Добавить подкатегорию"}
@@ -82,7 +59,7 @@ export function Category() {
               searchString={searchStringSubCatalog}
               setSearchString={setSearchStringSubCatalog}
             />
-            <InnerContentTable data={subData} />
+            <InnerContentTable data={subCatalog} />
           </div>
         ) : (
           <div className="errorCenter">Выберите категорию</div>

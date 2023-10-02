@@ -1,20 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IUsersResponse, IUsersStateObj } from "./types";
+import { IOrdersResponse, IOrdersStateObj } from "./types";
+import { orderService } from "../../../services/orderService";
 
-import { clientService } from "../../../services/clientService";
-
-const fetchLoadUsers = createAsyncThunk<
-  IUsersResponse,
-  IUsersStateObj,
+const fetchLoadOrders = createAsyncThunk<
+  IOrdersResponse,
+  IOrdersStateObj,
   { rejectValue: string }
 >(
-  "users/fetchLoadUsers",
+  "orders/fetchLoadOrders",
   async (
     { limitRowsOnPage, paginationObj, searchString },
     { rejectWithValue }
   ) => {
     try {
-      const response = await clientService.getUsers(
+      const response = await orderService.getOrders(
         limitRowsOnPage,
         paginationObj,
         searchString
@@ -27,4 +26,4 @@ const fetchLoadUsers = createAsyncThunk<
   }
 );
 
-export { fetchLoadUsers };
+export { fetchLoadOrders };

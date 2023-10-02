@@ -61,5 +61,34 @@ interface IBrandsData {
   icon: string;
   margin: number;
 }
+interface IOrdersData {
+  id: string;
+  order_type: string;
+  total: number;
+  isViewedByAdmin: boolean;
+  order_number: string;
+  delivery_type: string;
+  isPayed: boolean;
+  user: IOrdersUserData;
+  warehouse: { city: string };
+  date: string;
+}
 
-export type { IProductData, IUsersData, ICatalogData, ISubCatalogData };
+interface IOrdersUserData {
+  id: string;
+  name: string;
+  lastName: string;
+  secondName: string | undefined;
+  firmName: string | undefined;
+  role: string;
+}
+
+export type {
+  IProductData,
+  IUsersData,
+  ICatalogData,
+  ISubCatalogData,
+  IBrandsData,
+  IOrdersData,
+  IOrdersUserData,
+};

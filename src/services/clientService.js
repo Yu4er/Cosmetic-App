@@ -1,5 +1,7 @@
 import axios from "axios";
-// import { usersMockData } from "../mocks/usersMockData";
+
+import { showLog } from "../constants/utilities";
+
 
 class UserService {
   static instance;
@@ -11,12 +13,11 @@ class UserService {
   }
 
   async getUsers(limitView = 10, pagination = 1, searchString) {
-    // eslint-disable-next-line no-undef -- need for debugging
-    console.info("[UserService:getUsers]", {
+		showLog("[UserService:getUsers]", {
       limitView,
       pagination,
       searchString,
-    });
+    })
 
     function getLastPage(length) {
       return Math.ceil(length / limitView);
@@ -41,7 +42,7 @@ class UserService {
 
     return { data, lengthData:usersData.length, lastPage: getLastPage(usersData.length) };
     } catch (error) {
-      console.error('Ошибка при получении данных:', error);
+			showLog('Ошибка при получении данных:', error);
     }
   }
 }

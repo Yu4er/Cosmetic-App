@@ -9,18 +9,16 @@ import style from "../../Category.module.scss";
 
 interface IRowTable {
   item: ICatalogData | ISubCatalogData;
-  callback?: (position: number) => void;
   id: string;
+  callback?: (position: number) => void;
 }
 
 export function InnerRow({ item, callback, id }: IRowTable) {
   function onClickHandler() {
-    callback && callback(item.position);
+    if (callback) {
+      callback(item.position);
+    }
   }
-
-  const onClickProps = {
-    onClick: callback ? onClickHandler : undefined,
-  };
 
   const inputRef = useRef<HTMLInputElement>(null);
   const [disable, setDisable] = useState(true);
@@ -35,7 +33,10 @@ export function InnerRow({ item, callback, id }: IRowTable) {
   }
 
   return (
-    <div className={style["inner-data-table__item"]} {...onClickProps}>
+    <div
+      className={style["inner-data-table__item"]}
+      onClick={callback ? onClickHandler : undefined}
+    >
       <label className={style["inner-data-table__label"]} htmlFor={id}>
         <input
           title={item.name}
