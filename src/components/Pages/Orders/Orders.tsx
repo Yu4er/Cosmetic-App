@@ -45,7 +45,7 @@ const columns: ITableColumnsProps[] = [
     },
   },
 ];
-
+const columnNames = columns.map((i) => i.name);
 export function Orders() {
   const dispatch = useAppDispatch();
   const orders = useAppSelector(ordersSelectors.ordersDataSelector);
@@ -64,17 +64,15 @@ export function Orders() {
 
     return (
       <table className={style["content-sales-table"]}>
-        <TableHead theadList={columns.map((i) => i.name)} />
+        <TableHead theadList={columnNames} />
         <tbody className={style["content-sales-table__body"]}>
-          {orders.map((item: IOrdersData, index: number) => {
-            return (
-              <RowTable
-                key={`id-${index}${Math.random()}`}
-                dataRow={item}
-                columns={columns}
-              />
-            );
-          })}
+          {orders.map((item: IOrdersData, index: number) => (
+            <RowTable
+              key={`id-${index}${Math.random()}`}
+              dataRow={item}
+              columns={columns}
+            />
+          ))}
         </tbody>
       </table>
     );

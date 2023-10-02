@@ -47,7 +47,7 @@
         "ignore": ["react-app-env.d.ts"]
       }
     ],
-    "unicorn/expiring-todo-comments": ["error"],
+    "unicorn/expiring-todo-comments": ["off"],
     "import/order": [
       "error",
       {

@@ -1,6 +1,7 @@
 import axios from "axios";
-import { showLog } from "../constants/logger";
-// import { usersMockData } from "../mocks/usersMockData";
+
+import { showLog } from "../constants/utilities";
+
 
 class UserService {
   static instance;
@@ -41,7 +42,7 @@ class UserService {
 
     return { data, lengthData:usersData.length, lastPage: getLastPage(usersData.length) };
     } catch (error) {
-      console.error('Ошибка при получении данных:', error);
+			showLog('Ошибка при получении данных:', error);
     }
   }
 }

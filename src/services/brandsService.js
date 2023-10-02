@@ -1,5 +1,6 @@
 import axios from "axios";
-import { showLog } from "../constants/logger";
+
+import { showLog } from "../constants/utilities";
 
 class BrandsService {
 	static instance;

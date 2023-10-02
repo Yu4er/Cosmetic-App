@@ -29,7 +29,7 @@ const columns: ITableColumnsProps[] = [
     selector: (row) => row.phone,
   },
 ];
-
+const columnNames = columns.map((i) => i.name);
 export function Clients() {
   const dispatch = useAppDispatch();
   const users = useAppSelector(usersSelectors.usersDataSelector);
@@ -50,7 +50,7 @@ export function Clients() {
 
     return (
       <table className={style["content-sales-table"]}>
-        <TableHead theadList={columns.map((i) => i.name)} />
+        <TableHead theadList={columnNames} />
         <tbody className={style["content-sales-table__body"]}>
           {users.map((item: IUsersData, index: number) => {
             return (

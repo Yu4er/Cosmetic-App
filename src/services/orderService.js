@@ -1,5 +1,6 @@
 import axios from "axios";
-import { showLog } from "../constants/logger";
+
+import { showLog } from "../constants/utilities";
 
 class OrderService {
   static instance;
@@ -22,9 +23,6 @@ class OrderService {
     }
 
     try {
-      const response = await axios.get("http://localhost:3001/orders");
-      const ordersData = response.data;
-
       if (searchString) {
         const response = await axios.get(`http://localhost:3001/orders?q=${searchString}`);
         const filteredData = response.data;
@@ -34,6 +32,8 @@ class OrderService {
           lastPage: getLastPage(filteredData.length),
         };
       }
+			const response = await axios.get("http://localhost:3001/orders");
+      const ordersData = response.data;
 	
     const startIndex = (pagination - 1) * limitView;
     const endIndex = startIndex + limitView;
@@ -41,7 +41,7 @@ class OrderService {
 
     return { data, lengthData:ordersData.length, lastPage: getLastPage(ordersData.length) };
     } catch (error) {
-      console.error('Ошибка при получении данных:', error);
+			showLog('Ошибка при получении данных:', error);
       return {
         data: [],
         lengthData: 0,

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Category, Clients, Brands } from "./Pages";
+import { Category, Clients, Brands, Orders } from "./Pages";
 import { Layout } from "./Layout/Layout";
 
 import { pathRoutes } from "../constants/pathRoutes";
@@ -9,7 +9,6 @@ import { useAppSelector } from "../store/hooks";
 import { Login } from "../public/Login";
 import { Register } from "../public/Register";
 import { authSelectors } from "../store/features/auth/selectors";
-import { Orders } from "./Pages/Orders/Orders";
 
 export function Router() {
   const isAuth = useAppSelector(authSelectors.userLoginDataSelector);
@@ -17,7 +16,6 @@ export function Router() {
   return (
     <Routes>
       <Route path={pathRoutes.authorization}>
-        chore
         <Route path={pathRoutes.login} element={<Login />} />
         <Route path={pathRoutes.register} element={<Register />} />
       </Route>
