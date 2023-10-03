@@ -22,7 +22,7 @@ export function ButtonBlock({
     [setSearchString]
   );
   return (
-    <div className={style["button-block"]}>
+    <form className={style["button-block"]}>
       <div className={style["button-block__input"]}>
         <input
           onChange={handleInput}
@@ -37,6 +37,6 @@ export function ButtonBlock({
           {text}
         </button>
       </div>
-    </div>
+    </form>
   );
 }

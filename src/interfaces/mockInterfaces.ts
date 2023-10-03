@@ -83,6 +83,12 @@ interface IOrdersUserData {
   role: string;
 }
 
+interface ICitiesData {
+  id: string;
+  name: string;
+  address: string;
+}
+
 export type {
   IProductData,
   IUsersData,
@@ -91,4 +97,5 @@ export type {
   IBrandsData,
   IOrdersData,
   IOrdersUserData,
+  ICitiesData,
 };

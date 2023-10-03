@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+
 import {
   authSlice,
   brandsSlice,
   categorySlice,
+  citiesSlice,
   modalSlice,
   ordersSlice,
   usersSlice,
@@ -16,6 +18,7 @@ const store = configureStore({
     category: categorySlice.reducer,
     brands: brandsSlice.reducer,
     orders: ordersSlice.reducer,
+    cities: citiesSlice.reducer,
   },
 });
 

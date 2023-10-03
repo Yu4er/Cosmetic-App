@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Category, Clients, Brands, Orders } from "./Pages";
+import { Category, Clients, Brands, Orders, Cities } from "./Pages";
 import { Layout } from "./Layout/Layout";
 
 import { pathRoutes } from "../constants/pathRoutes";
@@ -23,7 +23,7 @@ export function Router() {
         <Route path={pathRoutes.products} element={<div>products</div>} />
         <Route path={pathRoutes.users} element={<Clients />} />
         <Route path={pathRoutes.category} element={<Category />} />
-        <Route path={pathRoutes.cities} element={<div>Cities</div>} />
+        <Route path={pathRoutes.cities} element={<Cities />} />
         <Route path={pathRoutes.brands} element={<Brands />} />
         <Route path={pathRoutes.protocols} element={<div>Protocols</div>} />
         <Route path={pathRoutes.orders} element={<Orders />} />

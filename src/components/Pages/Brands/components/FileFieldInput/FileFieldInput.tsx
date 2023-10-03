@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import style from "./FileFieldInput.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+
+import style from "./FileFieldInput.module.scss";
+
 import { validationFile } from "../../../../../constants/validationSchema";
+
+//Для проверки ввода данных
+const onSubmit = (data: any) => {
+  console.log(data);
+};
 
 export function FileFieldInput() {
   const [fileName, setFileName] = useState("Загрузите логотип бренда");
-
-  //Для проверки ввода данных
-  const onSubmit = (data: any) => {
-    console.log(data);
-  };
 
   const {
     register,
@@ -22,7 +24,7 @@ export function FileFieldInput() {
   });
 
   function handleFileDownload(event: React.SyntheticEvent<HTMLInputElement>) {
-    let file = event.target as HTMLInputElement;
+    const file = event.target as HTMLInputElement;
     setFileName(file.value.split("\\")[2]);
   }
 

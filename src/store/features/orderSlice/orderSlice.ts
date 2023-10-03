@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IOrdersState } from "./types";
+
 import { fetchLoadOrders } from "./thunks";
+
+import type { IOrdersState } from "./types";
 
 const initialState: IOrdersState = {
   isLoading: false,

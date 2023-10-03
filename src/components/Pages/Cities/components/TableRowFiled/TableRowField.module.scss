@@ -1,0 +1,19 @@
+.table-block__item {
+	position: relative;
+	td {
+		line-height: 50px;
+	}
+}
+.table-block__recycle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.delete {
+	background-image: url("../../../../../assets/images/component.svg");
+	background-size: 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 40px;
+	height: 40px;
+}

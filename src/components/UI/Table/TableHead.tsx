@@ -4,9 +4,9 @@ import style from "./Table.module.scss";
 import { THeadCheckbox } from "./components/THeadCheckbox/THeadCheckbox";
 
 interface ITableHeadProps {
-  isChecked?: boolean;
   handleAllClick?: () => void;
   theadList: string[];
+  isChecked?: boolean;
 }
 
 export function TableHead({
