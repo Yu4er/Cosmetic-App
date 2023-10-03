@@ -29,7 +29,7 @@ const columns: ITableColumnsProps[] = [
     selector: (row) => row.phone,
   },
 ];
-const columnNames = columns.map((i) => i.name);
+const columnNames = columns.map((element) => element.name);
 export function Clients() {
   const dispatch = useAppDispatch();
   const users = useAppSelector(usersSelectors.usersDataSelector);

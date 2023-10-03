@@ -45,7 +45,7 @@ const columns: ITableColumnsProps[] = [
     },
   },
 ];
-const columnNames = columns.map((i) => i.name);
+const columnNames = columns.map((element) => element.name);
 export function Orders() {
   const dispatch = useAppDispatch();
   const orders = useAppSelector(ordersSelectors.ordersDataSelector);

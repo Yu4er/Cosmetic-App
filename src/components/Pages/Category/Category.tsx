@@ -4,8 +4,6 @@ import style from "./Category.module.scss";
 import { ButtonBlock } from "./components/ButtonBlock/ButtonBlock";
 import { InnerContentTable } from "./components/InnerContentTable/InnerContentTable";
 
-import type { ISubCatalogData } from "../../../interfaces/mockInterfaces";
-
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { categorySelectors } from "../../../store/features/categorySlice/selectors";
 import {

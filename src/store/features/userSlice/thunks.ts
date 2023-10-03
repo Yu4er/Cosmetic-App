@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IUsersResponse, IUsersStateObj } from "./types";
+
+import type { IUsersResponse, IUsersStateObj } from "./types";
 
 import { clientService } from "../../../services/clientService";
 

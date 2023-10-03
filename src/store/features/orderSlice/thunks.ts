@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IOrdersResponse, IOrdersStateObj } from "./types";
+
+import type { IOrdersResponse, IOrdersStateObj } from "./types";
+
 import { orderService } from "../../../services/orderService";
 
 const fetchLoadOrders = createAsyncThunk<

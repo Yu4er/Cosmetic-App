@@ -8,7 +8,7 @@ const fetchLoadCatalog = createAsyncThunk<
   ICatalogsDataResponse,
   ICategoryStateObj,
   { rejectValue: string }
->("category/fetchLoadCatalog", async (undefined, { rejectWithValue }) => {
+>("category/fetchLoadCatalog", async (_undefined, { rejectWithValue }) => {
   try {
     const response = await categoryService.getCatalog();
     return response;
